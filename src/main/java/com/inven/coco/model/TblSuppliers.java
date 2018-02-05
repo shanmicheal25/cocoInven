@@ -1,5 +1,7 @@
 package com.inven.coco.model;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,14 +11,14 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tblCustomers")
-@NamedQuery(name="TblCustomers.findAll", query="SELECT t FROM TblCustomers t")
-public class TblCustomers {
+@Table(name="tblSuppliers")
+@NamedQuery(name="TblSuppliers.findAll", query="SELECT t FROM TblSuppliers t")
+public class TblSuppliers {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name = "CustomerId")
-	private int customerId;
+	@Column(name = "SupplierId")
+	private int supplierId;
 
 	private String address1;
 
@@ -36,16 +38,26 @@ public class TblCustomers {
 
 	private String postalCode;
 	
+	private String createdBy;
+	
+	private LocalDateTime  createdDate;
+	
+	private String updatedBy;
+	
+	private LocalDateTime  updatedDate;
 
 	@Override
 	public String toString() {
-		return "TblCustomers [customerId=" + customerId + ", address1=" + address1 + ", address2=" + address2
+		return "TblSuppliers [supplierId=" + supplierId + ", address1=" + address1 + ", address2=" + address2
 				+ ", city=" + city + ", companyName=" + companyName + ", contactName=" + contactName + ", country="
-				+ country + ", fax=" + fax + ", phone=" + phone + ", postalCode=" + postalCode + "]";
+				+ country + ", fax=" + fax + ", phone=" + phone + ", postalCode=" + postalCode + ", createdBy="
+				+ createdBy + ", createdDate=" + createdDate + ", updatedBy=" + updatedBy + ", updatedDate="
+				+ updatedDate + "]";
 	}
 
-	public TblCustomers(String address1, String address2, String city, String companyName, String contactName,
-			String country, String fax, String phone, String postalCode) {
+	public TblSuppliers(String address1, String address2, String city, String companyName, String contactName,
+			String country, String fax, String phone, String postalCode, String createdBy, LocalDateTime createdDate,
+			String updatedBy, LocalDateTime updatedDate) {
 		super();
 		this.address1 = address1;
 		this.address2 = address2;
@@ -56,21 +68,23 @@ public class TblCustomers {
 		this.fax = fax;
 		this.phone = phone;
 		this.postalCode = postalCode;
+		this.createdBy = createdBy;
+		this.createdDate = createdDate;
+		this.updatedBy = updatedBy;
+		this.updatedDate = updatedDate;
 	}
-	
-	
 
-	public TblCustomers() {
+	public TblSuppliers() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getCustomerId() {
-		return customerId;
+	public int getSupplierId() {
+		return supplierId;
 	}
 
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
+	public void setSupplierId(int supplierId) {
+		this.supplierId = supplierId;
 	}
 
 	public String getAddress1() {
@@ -143,6 +157,38 @@ public class TblCustomers {
 
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public LocalDateTime getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(LocalDateTime createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public LocalDateTime getUpdatedDate() {
+		return updatedDate;
+	}
+
+	public void setUpdatedDate(LocalDateTime updatedDate) {
+		this.updatedDate = updatedDate;
 	}
 	
 	
