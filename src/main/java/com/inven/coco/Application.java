@@ -1,15 +1,20 @@
 package com.inven.coco;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.inven.coco.common.util.RandomGuidUtil;
 import com.inven.coco.model.TblCustomers;
 import com.inven.coco.service.details.ICustomerRepository;
 
 @SpringBootApplication // same as @Configuration @EnableAutoConfiguration @ComponentScan
 public class Application implements CommandLineRunner {
+	
+	private static final Logger log = LoggerFactory.getLogger(Application.class);
 	
 	@Autowired
 	ICustomerRepository customerRepository;
@@ -30,6 +35,7 @@ public class Application implements CommandLineRunner {
 						"Binot", "MAlayis", "fax", "01221142", "56000")
 		};
 		
+		log.debug(" -- application started ...  ");
 		
 		for(TblCustomers tblCust : tblCustomer) {
 			customerRepository.save(tblCust);

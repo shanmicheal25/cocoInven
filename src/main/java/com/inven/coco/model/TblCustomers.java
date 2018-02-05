@@ -16,7 +16,7 @@ public class TblCustomers {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "CustomerId")
-	private int customerId;
+	private long customerId;
 
 	private String address1;
 
@@ -65,11 +65,11 @@ public class TblCustomers {
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getCustomerId() {
+	public long getCustomerId() {
 		return customerId;
 	}
 
-	public void setCustomerId(int customerId) {
+	public void setCustomerId(long customerId) {
 		this.customerId = customerId;
 	}
 

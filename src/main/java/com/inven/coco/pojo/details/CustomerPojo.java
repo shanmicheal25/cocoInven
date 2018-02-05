@@ -4,7 +4,7 @@ import com.inven.coco.pojo.defaults.ResponsePojo;
 
 public class CustomerPojo extends ResponsePojo{
 
-	private int customerId;
+	private long customerId;
 
 	private String address1;
 
@@ -26,11 +26,11 @@ public class CustomerPojo extends ResponsePojo{
 
 	
 	
-	public int getCustomerId() {
+	public long getCustomerId() {
 		return customerId;
 	}
 
-	public void setCustomerId(int customerId) {
+	public void setCustomerId(long customerId) {
 		this.customerId = customerId;
 	}
 

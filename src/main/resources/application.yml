@@ -1,0 +1,11 @@
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+    hibernate: DEBUG
+    
+  path: concretepage/logs
+  pattern:
+    file: '%d{yyyy-MMM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{15} - %msg%n'
+    console: '%d{yyyy-MMM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{15} - %msg%n'  

@@ -5,11 +5,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 
 public class RandomGuidUtil {
 
-	static Logger log = Logger.getLogger(RandomGuidUtil.class);
+	private static final Logger log = LoggerFactory.getLogger(RandomGuidUtil.class);
+	
 	private String guid;
 
 	public static String fnGuidUsingUUID() {
