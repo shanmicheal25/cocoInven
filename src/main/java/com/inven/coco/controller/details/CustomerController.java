@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +25,7 @@ import com.inven.coco.common.constants.GlobelConstant;
 import com.inven.coco.model.TblCustomers;
 import com.inven.coco.pojo.details.CustomerPojo;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
@@ -32,6 +34,11 @@ public class CustomerController {
 
 	@Autowired
 	private ICustomerRepository custRep;
+
+	@RequestMapping("/hi")
+	public String hi() {
+		return "Hello world from restful api";
+	}
 
 	@RequestMapping("/findAll")
 	@ResponseBody
@@ -66,9 +73,8 @@ public class CustomerController {
 		return ResponseEntity.ok().body(cust);
 	}
 
-	@PutMapping("/updateCustomer/{id}")
-	public ResponseEntity<TblCustomers> updateCustomer(@PathVariable(value = "id") Long custId,
-			@Valid @RequestBody CustomerPojo input) {
+	@PutMapping("/updateCustomer")
+	public ResponseEntity<TblCustomers> updateCustomer(@Valid @RequestBody CustomerPojo input) {
 
 		log.info("came to updateCustomer get method ");
 		try {
@@ -80,7 +86,7 @@ public class CustomerController {
 			// input.getCountry(), input.getPhone(),
 			// input.getFax(), input.getPostalCode()));
 
-			TblCustomers cust = custRep.findOne(custId);
+			TblCustomers cust = custRep.findOne(input.getCustomerId());
 			if (cust == null) {
 				return ResponseEntity.notFound().build();
 			}
@@ -90,7 +96,7 @@ public class CustomerController {
 			cust.setCompanyName(input.getCompanyName());
 			cust.setContactName(input.getContactName());
 			cust.setCountry(input.getCountry());
-			cust.setCustomerId(custId);
+			// cust.setCustomerId(custId);
 			cust.setFax(input.getFax());
 			cust.setPhone(input.getPhone());
 			cust.setPostalCode(input.getPostalCode());
