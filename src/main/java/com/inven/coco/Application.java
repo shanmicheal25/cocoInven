@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.inven.coco.common.util.RandomGuidUtil;
 import com.inven.coco.model.TblCustomers;
-import com.inven.coco.service.details.ICustomerRepository;
+import com.inven.coco.repository.details.ICustomerRepository;
 
 @SpringBootApplication // same as @Configuration @EnableAutoConfiguration @ComponentScan
 public class Application implements CommandLineRunner {

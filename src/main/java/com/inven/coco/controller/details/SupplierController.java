@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.inven.coco.common.constants.GlobelConstant;
 import com.inven.coco.model.TblSuppliers;
 import com.inven.coco.pojo.details.SupplierPojo;
-import com.inven.coco.service.details.ISupplierRepository;
+import com.inven.coco.repository.details.ISupplierRepository;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController

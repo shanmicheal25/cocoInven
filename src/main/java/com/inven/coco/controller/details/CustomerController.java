@@ -19,11 +19,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.inven.coco.service.details.ICustomerRepository;
 import com.inven.coco.Application;
 import com.inven.coco.common.constants.GlobelConstant;
 import com.inven.coco.model.TblCustomers;
 import com.inven.coco.pojo.details.CustomerPojo;
+import com.inven.coco.repository.details.ICustomerRepository;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
